@@ -10,7 +10,7 @@ console.log(`NODE_ENV=${process.env.NODE_ENV}`);
 
 // import routers
 const apiRouter = require('./routes/api.js');
-//const sessionRouter = require('./routes/session.js');
+const sessionRouter = require('./routes/session.js');
 
 // initialize application
 const app = express();
@@ -41,7 +41,7 @@ mongoose
 
 // configure routes
 app.use('/api', apiRouter);
-//app.use('/api/session/', sessionRouter);
+app.use('/api/session/', sessionRouter);
 
 // serve static files
 app.use(express.static(path.join(__dirname, '../client', 'build')));

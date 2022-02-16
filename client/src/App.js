@@ -1,15 +1,10 @@
-import React, { Component, useState, useEffect, useCallback } from 'react';
-import { Routes, Route, Link } from "react-router-dom";
-
-import Hotspots from './components/hotspots';
-import Notables from './components/notables';
-import Home from './components/home';
+import React, { useState } from 'react';
 
 import MainContainer from './containers/mainContainer';
 
 import './App.css';
 
-const App = props => {
+const App = () => {
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
   const [status, setStatus] = useState(null);
@@ -31,7 +26,6 @@ const App = props => {
       });
     }
   };
-
 
   return (
     <div id="app">

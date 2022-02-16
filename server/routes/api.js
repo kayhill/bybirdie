@@ -5,7 +5,7 @@ const router = express.Router()
 
 //const User = require('../../models/User')
 
-router.get('/test', (req, res) => res.json({msg: 'backend works'}))
+//router.get('/test', (req, res) => res.json({msg: 'backend works'}))
 
 router.get('/hotspots', eBirdController.getHotspots, (req, res) => {
   res.status(200).json(res.locals.hotspots);
