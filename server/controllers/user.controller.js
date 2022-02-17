@@ -2,8 +2,8 @@ const User = require('../models/User');
 
 const userController = {};
 
+
 userController.createUser = (req, res, next) => {
-  // write code here
   const { username, password } = req.body;
   const newUser = new User({
     username,
@@ -11,12 +11,10 @@ userController.createUser = (req, res, next) => {
   });
 
   newUser.save(function (err, user) {
-    if (err)
-      return next({
-        log: `error occured in userController.createUser: ${err}`,
-        message:
-          'Error in userController.createUser. See log for more details.',
-      });
+    if (err) {
+      res.locals.err = true;
+      return next()
+    }
     else {
       res.locals.user = user;
       return next();

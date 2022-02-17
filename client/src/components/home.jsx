@@ -1,4 +1,5 @@
 import React from 'react';
+import UserFormsContainer from '../containers/UserFormsContainer';
 
 
 const Home = (props) => {  
@@ -9,18 +10,17 @@ const Home = (props) => {
         <div>
           <h2>Welcome {props.user.username}</h2>
           <p>Bird watching is so fun</p>
+          <button type='button' onClick={props.logout}>Log Out</button>
         </div>
       }
       {props.loggedIn === false &&
       <div>
         <h2>Welcome</h2>
         <p>Bird watching is so fun</p>
-        <button type="button">Register</button>
-        <button>Log In</button>
+        <UserFormsContainer status={props.status} register={props.register} login={props.login} user={props.user}/>
       </div>
       }
     </div>
-    
     ) 
 };
 

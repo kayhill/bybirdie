@@ -29,12 +29,63 @@ const App = () => {
     }
   };
 
+  function register(username, password){
+    setStatus('Registering...');
+    fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username, password
+      }),
+    })
+      .then((res) => res.json())
+      .then(
+        (user) => {
+          setStatus(null);
+          setLoggedIn(true);
+          setUser(user);
+        },
+        (error) => {
+          setStatus('Sorry, that username is already taken.');
+          console.log(error);
+        }
+      );
+  }
+
+  function login(username, password){
+    setStatus('Logging in...');
+    fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username, password
+      }),
+    })
+      .then((res) => res.json())
+      .then(
+        (user) => {
+          setStatus(null);
+          setLoggedIn(true);
+          setUser(user);
+        },
+        (error) => {
+          setStatus('An error occured. Please check your credentials and try again.');
+          console.log(error);
+        }
+      );
+  }
+
+  const logout = () => {
+    setUser('');
+    setLoggedIn(false);
+  }
+
 
   return (
     <div id="app">
       <header><h1>By Birdie</h1></header>
       <main>
-        <MainContainer user={user} loggedIn={loggedIn} lat={lat} lng={lng} status={status} enabled={enabled} getLocation={getLocation}/>
+        <MainContainer user={user} loggedIn={loggedIn} lat={lat} lng={lng} status={status} enabled={enabled} getLocation={getLocation} register={register} logout={logout} login={login}/>
       </main>
     </div>
   );

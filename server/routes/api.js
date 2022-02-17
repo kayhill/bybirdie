@@ -23,7 +23,12 @@ router.post('/login', userController.verifyUser, (req, res) => {
 });
 
 router.post('/register', userController.createUser, (req, res) => {
-  res.status(200).json(res.locals.user);
+  if(res.locals.err) {
+    res.status(400).send()
+  } else if(!res.locals.err){
+    res.status(200).json(res.locals.user);
+  }
+  
 });
 
 

@@ -16,7 +16,7 @@ const MainContainer = (props) => {
     {props.enabled && 
       <div className="main-display">
         <Menu loggedIn={props.loggedIn}/>
-        <Router user={props.user} loggedIn={props.loggedIn} lat={props.lat} lng={props.lng}/>
+        <Router status={props.status} register={props.register} logout={props.logout} login={props.login} user={props.user} loggedIn={props.loggedIn} lat={props.lat} lng={props.lng}/>
       </div>
     }
   </div>

@@ -40,7 +40,7 @@ const Menu = ({ loggedIn }) => {
           </li>
           <li>
             {' '}
-            <Link to="/history">History</Link>{' '}
+            <Link to="/history">My History</Link>{' '}
           </li>
         </ul>
       )}

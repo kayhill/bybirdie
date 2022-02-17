@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Status from '../components/loading-status';
 import SessionDisplay from '../components/session-display';
 
-const SessionContainer = ({ lat, lng }) => {
+const SessionContainer = ({ user, lat, lng }) => {
   const [started, setStarted] = useState(false);
   const [status, setStatus] = useState(null);
   const [session, setSession] = useState({});
@@ -20,6 +20,7 @@ const SessionContainer = ({ lat, lng }) => {
       body: JSON.stringify({
         lat: lat,
         lng: lng,
+        user_id: user._id
       }),
     })
       .then((res) => res.json())
@@ -51,7 +52,6 @@ const SessionContainer = ({ lat, lng }) => {
         (result) => {
           setStatus(null);
           setSession(result);
-          console.log(result);
         },
         (error) => {
           setStatus('An error occured');
