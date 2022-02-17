@@ -5,6 +5,8 @@ import MainContainer from './containers/mainContainer';
 import './App.css';
 
 const App = () => {
+  const [user, setUser] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false); 
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
   const [status, setStatus] = useState(null);
@@ -27,11 +29,12 @@ const App = () => {
     }
   };
 
+
   return (
     <div id="app">
-      <header><h1>Let's Go Birding!</h1></header>
+      <header><h1>By Birdie</h1></header>
       <main>
-        <MainContainer lat={lat} lng={lng} status={status} enabled={enabled} getLocation={getLocation}/>
+        <MainContainer user={user} loggedIn={loggedIn} lat={lat} lng={lng} status={status} enabled={enabled} getLocation={getLocation}/>
       </main>
     </div>
   );

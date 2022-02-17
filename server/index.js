@@ -18,7 +18,7 @@ const app = express();
 // set up CORS for Cross-Origin-Resource-Sharing
 app.use(cors());
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'locahost:3000'); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Origin', 'locahost:3000'); 
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
@@ -27,8 +27,8 @@ app.use(function (req, res, next) {
 });
 
 // converts API responses to JSON
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 
 // import database credentials
 const db = process.env.MONGO_URI;

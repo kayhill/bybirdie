@@ -6,7 +6,7 @@ import Router from './routes';
 
 const MainContainer = (props) => {
   return (
-    <div>
+    <div id="mainContainer">
     {!props.enabled && 
       <div className="main-display">
       <StartApp getLocation={props.getLocation}/>
@@ -15,8 +15,8 @@ const MainContainer = (props) => {
     }
     {props.enabled && 
       <div className="main-display">
-        <Menu />
-        <Router lat={props.lat} lng={props.lng}/>
+        <Menu loggedIn={props.loggedIn}/>
+        <Router user={props.user} loggedIn={props.loggedIn} lat={props.lat} lng={props.lng}/>
       </div>
     }
   </div>
