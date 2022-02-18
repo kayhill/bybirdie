@@ -19,11 +19,11 @@ router.put('/delete', sessionController.deleteBird, (req, res) => {
   return res.status(200).json(res.locals.session);
 });
 
-router.get('/history?id', sessionController.getHistory, (req, res) => {
-  if(res.status.empty) {
-    res.status(200).json(res.locals.message);
+router.get('/history', sessionController.getHistory, (req, res) => {
+  if(res.locals.empty) {
+    return res.status(200).json(res.locals.message);
   } else {
-    res.status(200).json(res.locals.sessions);
+    return res.status(200).json(res.locals.sessions);
   }
   
 })

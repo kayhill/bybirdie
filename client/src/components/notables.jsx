@@ -26,13 +26,16 @@ export default function Notables({ lat, lng }) {
     return <div>Loading...</div>;
   } else {
     return (
-      <ul>
-        {items.map((item, i) => (
-          <li key={i}>
-            {item.comName} ... {item.locName}{' '}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <h2>Notable and Rare Sightings</h2>
+        <ul>
+          {items.map((item, i) => (
+            <li key={i}>
+              {item.comName} ... {item.locName}{' '}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 }

@@ -7,7 +7,7 @@ const History = ({ user }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/session/history?id=${user._id}`, {})
+    fetch(`/api/session/history?id=${user._id}`)
       .then((res) => res.json())
       .then(
         (items) => {
@@ -26,18 +26,30 @@ const History = ({ user }) => {
     <div>
       {!isLoaded && <p>Fetching your history...</p>}
       {error && <p>{error}</p>}
-      {isLoaded && items.length === 0&& (
+      {isLoaded && !items.length && (
         <p>
           You haven't saved any bird watching sessions yet.{' '}
           <Link to="/session">Begin birding!</Link>
         </p>
       )}
-      {isLoaded && items.length > 0 && (
+      {isLoaded && items.length && (
         <ul>
           {items.map((item, i) => {
             return (
-              <li key={i}>
-                {item.lat}, {item.lng}, {item.createdAt}, {item.birds}
+              <li id="history-listitem" key={i} className="card bird-display">
+                Location: {item.lat}, {item.lng}
+                <br></br>
+                Date: {item.createdAt}
+                <br></br>
+                <ul>
+                  {item.birds.map((bird, i) => {
+                    return (
+                      <li key={i}>
+                        <span>{bird}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
               </li>
             );
           })}

@@ -7,40 +7,32 @@ const Menu = ({ loggedIn }) => {
       {loggedIn === false && (
         <ul>
           <li>
-            {' '}
-            <Link to="/">Home</Link>{' '}
+            <Link to="/">Home</Link>
           </li>
           <li>
-            {' '}
-            <Link to="/hotspots">Hotspots</Link>{' '}
+            <Link to="/hotspots">Hotspots</Link>
           </li>
           <li>
-            {' '}
-            <Link to="/notables">Notables</Link>{' '}
+            <Link to="/notables">Notables</Link>
           </li>
         </ul>
       )}
       {loggedIn === true && (
         <ul>
           <li>
-            {' '}
-            <Link to="/">Home</Link>{' '}
+            <Link to="/">Home</Link>
           </li>
           <li>
-            {' '}
-            <Link to="/hotspots">Hotspots</Link>{' '}
+            <Link to="/hotspots">Hotspots</Link>
           </li>
           <li>
-            {' '}
-            <Link to="/notables">Notables</Link>{' '}
+            <Link to="/notables">Notables</Link>
           </li>
           <li>
-            {' '}
-            <Link to="/session">Session</Link>{' '}
+            <Link to="/session">Session</Link>
           </li>
           <li>
-            {' '}
-            <Link to="/history">My History</Link>{' '}
+            <Link to="/history">My History</Link>
           </li>
         </ul>
       )}

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 import MainContainer from './containers/mainContainer';
+import logo from './components/images/bybirdie_logo.png';
 
 import './App.css';
 
 const App = () => {
   const [user, setUser] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false); 
+  const [loggedIn, setLoggedIn] = useState(false);
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
   const [status, setStatus] = useState(null);
@@ -15,27 +16,30 @@ const App = () => {
   const getLocation = () => {
     if (!navigator.geolocation) {
       setStatus('Geolocation is not supported by your browser :(');
-
     } else {
       setStatus('Locating...');
-      navigator.geolocation.getCurrentPosition((position) => {
-        setStatus(null);
-        setEnabled(true);
-        setLat(position.coords.latitude);
-        setLng(position.coords.longitude);
-      }, () => {
-        setStatus('Unable to retrieve your location');
-      });
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setStatus(null);
+          setEnabled(true);
+          setLat(position.coords.latitude);
+          setLng(position.coords.longitude);
+        },
+        () => {
+          setStatus('Unable to retrieve your location');
+        }
+      );
     }
   };
 
-  function register(username, password){
+  function register(username, password) {
     setStatus('Registering...');
     fetch('/api/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        username, password
+        username,
+        password,
       }),
     })
       .then((res) => res.json())
@@ -52,13 +56,14 @@ const App = () => {
       );
   }
 
-  function login(username, password){
+  function login(username, password) {
     setStatus('Logging in...');
     fetch('/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        username, password
+        username,
+        password,
       }),
     })
       .then((res) => res.json())
@@ -69,7 +74,9 @@ const App = () => {
           setUser(user);
         },
         (error) => {
-          setStatus('An error occured. Please check your credentials and try again.');
+          setStatus(
+            'An error occured. Please check your credentials and try again.'
+          );
           console.log(error);
         }
       );
@@ -78,17 +85,30 @@ const App = () => {
   const logout = () => {
     setUser('');
     setLoggedIn(false);
-  }
-
+  };
 
   return (
     <div id="app">
-      <header><h1>By Birdie</h1></header>
+      <header class="App-header">
+        <img className="App-logo" alt="By Birdie Logo" src={logo} />
+        <h1>ByBirdie</h1>
+      </header>
       <main>
-        <MainContainer user={user} loggedIn={loggedIn} lat={lat} lng={lng} status={status} enabled={enabled} getLocation={getLocation} register={register} logout={logout} login={login}/>
+        <MainContainer
+          user={user}
+          loggedIn={loggedIn}
+          lat={lat}
+          lng={lng}
+          status={status}
+          enabled={enabled}
+          getLocation={getLocation}
+          register={register}
+          logout={logout}
+          login={login}
+        />
       </main>
     </div>
   );
-}
+};
 
 export default App;

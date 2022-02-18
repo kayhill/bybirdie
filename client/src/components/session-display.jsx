@@ -4,10 +4,10 @@ import BirdDisplay from './bird-display';
 
 const SessionDisplay = ({ endSession, session, addBird, removeBird }) => {
   return (
-    <div>
-      <SessionForm removeBird={removeBird} addBird={addBird} />
+    <div>      
       <BirdDisplay session={session} />   
-      <button onClick={endSession} type="button">End Session</button>   
+      <SessionForm removeBird={removeBird} addBird={addBird} />
+      <button id="end-btn" className="btn waves-effect waves-light teal" onClick={endSession} type="button">End Session</button>   
     </div>
   );
 };

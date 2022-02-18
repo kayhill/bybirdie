@@ -8,7 +8,7 @@ const UserPage = (props) => {
     <div id="userHistory">      
     {props.loggedIn &&
       <div>
-      <h2>Welcome back, {props.user.username}</h2>
+      <h2>Your Birding History</h2>
       <History user={props.user}/>
       </div>
     

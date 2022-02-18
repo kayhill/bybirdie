@@ -23,10 +23,11 @@ const SessionForm = ({ addBird, removeBird }) => {
           setName('');
         }}
         type="button"
+        className="btn waves-effect waves-light primary"
       >
         Add Birdie
       </button>
-      <button onClick={removeBird}>Undo</button>
+      <button id="undo-btn" className="btn waves-effect waves-light btn-flat" onClick={removeBird}>Undo</button>
     </div>
   );
 };

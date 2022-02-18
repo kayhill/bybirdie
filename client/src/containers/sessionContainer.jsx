@@ -84,8 +84,9 @@ const SessionContainer = ({ user, lat, lng }) => {
 
   return (
     <div id="sessionContainer">
-      <h2>Session</h2>
-      {!started && <button onClick={startSession}>Start Session</button>}
+      <h2>Birdwatching Session</h2>
+      <p>Grab your binoculars, it's time to get birding! Keep track of any birds you spot during today's bird watching session. </p>
+      {!started && <button className="waves-effect waves-light btn primary" onClick={startSession}>New Session</button>}
       {started && (
         <div id="sessionDisplay">
           <Status status={status} />

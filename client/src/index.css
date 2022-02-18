@@ -1,13 +1,41 @@
+@import '~@csstools/normalize.css';
+
 body {
   margin: 2%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-size: 16px;
+  font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #245d6b;
+  color: #e2e2e2;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button.primary {
+  background-color: #e28869;
+}
+
+button.primary:hover {
+  background-color: #f78355;
+}
+
+#app {
+  width: 98%;
+}
+
+#start-app {
+  margin-top: 20vh;
+}
+
+h2 {
+  font-size: 1.9em;
+  color: #e28869;
+}
+
+#history-listitem{
+  margin: 30px 1%;
+}
+
+span {
+  background-color: none;
+  color: #e28869;
 }

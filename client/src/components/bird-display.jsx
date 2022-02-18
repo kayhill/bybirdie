@@ -3,6 +3,7 @@ import React from 'react';
 const BirdDisplay = ({session}) => {
   if (session.birds) {
     return (
+      <div className="bird-display card">
       <ul>
         {session.birds.map((bird, i) => (
           <li key={i}>
@@ -10,9 +11,10 @@ const BirdDisplay = ({session}) => {
           </li>
         ))}
       </ul>
+      </div>
     );
   } else {
-    return (<p>Grab those binoculars and get to work!</p>)
+    return (<p>Good luck out there!</p>)
   }
 }
 

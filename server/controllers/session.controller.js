@@ -5,7 +5,7 @@ const sessionController = {};
 sessionController.getHistory = (req, res, next) => {
   const user_id=req.query.id;
 
-  Session.findAll({user_id}, function (err, sessions) {
+  Session.find({user_id}, function (err, sessions) {
     if (err) {
       return next({log: `ERROR in session.controller.getSession: ${err}`,
       message: `An error occured in sessionController.getSession. See log for more info`,
