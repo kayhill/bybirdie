@@ -5,7 +5,7 @@ import Status from '../components/loading-status';
 const UserFormsContainer = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [register, setRegister] = useState(true);
+  const [register, setRegister] = useState(false);
 
   const handleUsernameInput = (event) => {
     setUsername(event.target.value);
@@ -53,7 +53,7 @@ const UserFormsContainer = (props) => {
       )}
       {register === false && (
         <div id="login-container">
-          <p>Log in with your existing account</p>
+          <p>Username: <span>DEMO</span> Password: <span>DEMO</span></p>
           <UserForm
             id="login"
             handlePasswordInput={handlePasswordInput}
@@ -72,6 +72,17 @@ const UserFormsContainer = (props) => {
           >
             Log In{' '}
           </button>
+          <p>
+            Don't have an account?
+            <button
+              className="waves-effect waves-teal btn-flat"
+              onClick={() => {
+                setRegister(true);
+              }}
+            >
+              Register!
+            </button>
+          </p>
         </div>
       )}
       <Status status={props.status} />

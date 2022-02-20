@@ -52,7 +52,7 @@ const App = () => {
           setUser(user);
         },
         (error) => {
-          setStatus('Sorry, that username is already taken.');
+          setStatus('Sorry, an error occured. Try a different username.');
           console.log(error);
         }
       );
