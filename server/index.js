@@ -17,18 +17,17 @@ const app = express();
 
 // set up CORS for Cross-Origin-Resource-Sharing
 app.use(cors());
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'locahost:3000'); 
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '');
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept'
+//   );
+//   next();
+// });
 
 // converts API responses to JSON
 app.use(bodyParser.json());
-
 
 // import database credentials
 const db = process.env.MONGO_URI;
@@ -68,8 +67,8 @@ app.use((err, req, res, next) => {
 });
 
 // intialize the server and logs a message
-app.listen(process.env.PORT, process.env.HOST, () =>
-  console.log(`Server running on ${process.env.HOST}:${process.env.PORT}`)
-);
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on ${process.env.PORT}`);
+});
 
 module.exports = app;
