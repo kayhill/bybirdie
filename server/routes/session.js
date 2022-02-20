@@ -20,13 +20,11 @@ router.put('/delete', sessionController.deleteBird, (req, res) => {
 });
 
 router.get('/history', sessionController.getHistory, (req, res) => {
-  if(res.locals.empty) {
-    return res.status(200).json(res.locals.message);
+  if (res.locals.empty) {
+    return res.status(200).json();
   } else {
     return res.status(200).json(res.locals.sessions);
   }
-  
-})
-
+});
 
 module.exports = router;

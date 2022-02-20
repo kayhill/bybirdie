@@ -17,7 +17,6 @@ const History = ({ user }) => {
           setItems(items);
         },
         (error) => {
-          setIsLoaded(true);
           setError('Sorry, we encountered a problem getting your history.');
           console.log(error);
         }
@@ -26,15 +25,14 @@ const History = ({ user }) => {
 
   return (
     <div>
-      {!isLoaded && <p>Fetching your history...</p>}
       {error && <p>{error}</p>}
-      {isLoaded && items.length === 0 (
+      {!isLoaded && (
         <p>
           You haven't saved any bird watching sessions yet.{' '}
           <Link to="/session">Begin birding!</Link>
         </p>
       )}
-      {isLoaded && items.length > 0 && (
+      {isLoaded && (
         <ul>
           {items.map((item, i) => {
             return (
