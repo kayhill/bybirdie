@@ -7,6 +7,8 @@ const SessionContainer = ({ user, lat, lng }) => {
   const [status, setStatus] = useState(null);
   const [session, setSession] = useState({});
 
+  const URL = 'https://bybirdie.herokuapp.com';
+
   const endSession = () => {
     setSession({});
     setStarted(false);
@@ -14,7 +16,7 @@ const SessionContainer = ({ user, lat, lng }) => {
 
   const startSession = () => {
     setStatus('Loading...');
-    fetch('/api/session/start', {
+    fetch(`${URL}/api/session/start`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -39,7 +41,7 @@ const SessionContainer = ({ user, lat, lng }) => {
 
   function addBird(bird) {
     setStatus('Loading...');
-    fetch('/api/session/add', {
+    fetch(`${URL}/api/session/add`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -62,7 +64,7 @@ const SessionContainer = ({ user, lat, lng }) => {
 
   const removeBird = () => {
     setStatus('Loading...');
-    fetch('/api/session/delete', {
+    fetch(`${URL}/api/session/delete`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

@@ -5,6 +5,8 @@ import logo from './components/images/bybirdie_logo.png';
 
 import './App.css';
 
+const URL = 'https://bybirdie.herokuapp.com';
+
 const App = () => {
   const [user, setUser] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -34,7 +36,7 @@ const App = () => {
 
   function register(username, password) {
     setStatus('Registering...');
-    fetch('/api/register', {
+    fetch(`${URL}/api/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -58,7 +60,7 @@ const App = () => {
 
   function login(username, password) {
     setStatus('Logging in...');
-    fetch('/api/login', {
+    fetch(`${URL}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
