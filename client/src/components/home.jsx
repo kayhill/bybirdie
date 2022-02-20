@@ -6,7 +6,7 @@ const Home = (props) => {
     <div className="">
       {props.loggedIn === true && (
         <div>
-          <h2>Welcome back, {props.user.username}!</h2>
+          <h2>Welcome, {props.user.username}!</h2>
           <p>
             Need inspiration? Check out the notables section to see a list of
             unusual or <span>rare bird sightings</span> that have been reported
