@@ -28,13 +28,13 @@ const History = ({ user }) => {
     <div>
       {!isLoaded && <p>Fetching your history...</p>}
       {error && <p>{error}</p>}
-      {isLoaded && !items.length && (
+      {isLoaded && items.length === 0 (
         <p>
           You haven't saved any bird watching sessions yet.{' '}
           <Link to="/session">Begin birding!</Link>
         </p>
       )}
-      {isLoaded && items.length && (
+      {isLoaded && items.length > 0 && (
         <ul>
           {items.map((item, i) => {
             return (
