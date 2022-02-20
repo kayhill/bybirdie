@@ -15,7 +15,7 @@ eBirdController.getHotspots = async (req, res, next) => {
   //console.log(lat, lng);
 
   const url = eBirdAPI.hotspot_url.concat(
-    `?lat=${lat}&lng=${lng}&dist=3&fmt=json`
+    `?lat=${lat}&lng=${lng}&dist=6&fmt=json`
   );
   const response = await fetch(url, {
     headers: eBirdAPI.headers,
