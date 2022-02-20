@@ -3,7 +3,7 @@ import UserFormsContainer from '../containers/UserFormsContainer';
 
 const Home = (props) => {
   return (
-    <div class="">
+    <div className="">
       {props.loggedIn === true && (
         <div>
           <h2>Welcome back, {props.user.username}!</h2>
