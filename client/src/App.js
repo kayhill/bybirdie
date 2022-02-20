@@ -91,7 +91,7 @@ const App = () => {
 
   return (
     <div id="app">
-      <header class="App-header">
+      <header className="App-header">
         <img className="App-logo" alt="By Birdie Logo" src={logo} />
         <h1>ByBirdie</h1>
       </header>
