@@ -47,12 +47,13 @@ app.use(express.static(path.join(__dirname, '../client', 'build')));
 
 // route to respond with main app
 app.get('/', (req, res, next) => {
-  console.log('trying');
   res.sendFile(path.join(__dirname, '../client', 'build', 'index.html'));
 });
 
-// catch-all route handler for any requests to an unknown route
-app.use('/*', (req, res) => res.sendStatus(404));
+// catch-all route handler for react-router requests
+app.use('/*', (req, res, next) => {
+  res.sendFile(path.join(__dirname, '../client', 'build', 'index.html'));
+});
 
 // configire express global error handler
 app.use((err, req, res, next) => {
